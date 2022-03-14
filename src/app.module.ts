@@ -6,6 +6,7 @@ import { HopitalModule } from './hospital/hospital.module';
 import { PatientModule } from './patient/patient.module';
 import { ServiceModule } from './service/service.module';
 import { PractitionerModule } from './practitioner/practitioner.module';
+import { DesponibliteModule } from './disponibilite/disponibilite.module';
 import { AllergieModule } from './allergie/allergie.module';
 
 @Module({
@@ -23,6 +24,7 @@ import { AllergieModule } from './allergie/allergie.module';
     PatientModule,
     ServiceModule,
     PractitionerModule,
+    DesponibliteModule,
     AllergieModule,
   ],
   controllers: [],
