@@ -6,6 +6,8 @@ import { AppService } from './app.service';
 import ormConfig from './config/ormConfig';
 import { HopitalModule } from './hospital/hospital.module';
 import { PatientModule } from './patient/patient.module';
+import { ServiceModule } from './service/service.module';
+import { PractitionerModule } from './practitioner/practitioner.module';
 
 @Module({
   imports: [
@@ -20,6 +22,8 @@ import { PatientModule } from './patient/patient.module';
     }),
     HopitalModule,
     PatientModule,
+    ServiceModule,
+    PractitionerModule,
   ],
   controllers: [AppController],
   providers: [AppService],
