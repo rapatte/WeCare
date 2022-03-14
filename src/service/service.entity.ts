@@ -10,5 +10,4 @@ export class Service extends BaseEntity {
 
   @Column()
   specialisation: string;
-
 }
