@@ -1,4 +1,12 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
+import { Hospital } from 'src/hospital/hospital.entity';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  BaseEntity,
+  JoinTable,
+  ManyToMany,
+} from 'typeorm';
 
 @Entity()
 export class Service extends BaseEntity {
@@ -10,4 +18,8 @@ export class Service extends BaseEntity {
 
   @Column()
   specialisation: string;
+
+  @ManyToMany(() => Hospital)
+  @JoinTable()
+  hospitals: Hospital[];
 }
