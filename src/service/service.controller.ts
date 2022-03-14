@@ -1,4 +1,5 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, HttpStatus, Post, Res } from '@nestjs/common';
+import { Response } from 'express';
 import { Service } from './service.entity';
 import { ServiceService } from './service.service';
 
@@ -9,5 +10,14 @@ export class ServiceController {
   @Get()
   getAllService(): Promise<Service[]> {
     return this.serviceService.getAllService();
+  }
+
+  @Post()
+  async create(
+    @Body() service: Service,
+    @Res() response: Response,
+  ): Promise<void> {
+    const newservice = await this.serviceService.addAService(service);
+    response.status(HttpStatus.CREATED).send(newservice);
   }
 }
