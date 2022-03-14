@@ -8,6 +8,7 @@ import { HopitalModule } from './hospital/hospital.module';
 import { PatientModule } from './patient/patient.module';
 import { ServiceModule } from './service/service.module';
 import { PractitionerModule } from './practitioner/practitioner.module';
+import { DesponibliteModule } from './disponibilite/disponibilite.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { PractitionerModule } from './practitioner/practitioner.module';
     PatientModule,
     ServiceModule,
     PractitionerModule,
+    DesponibliteModule,
   ],
   controllers: [AppController],
   providers: [AppService],
