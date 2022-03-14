@@ -9,8 +9,6 @@ export class Service extends BaseEntity {
   name: string;
 
   @Column()
-  address: string;
+  specialisation: string;
 
-  @Column()
-  telephone: string;
 }

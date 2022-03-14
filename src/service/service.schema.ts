@@ -13,10 +13,7 @@ export const ServiceSchema = new EntitySchema<Service>({
     name: {
       type: String,
     },
-    address: {
-      type: String,
-    },
-    telephone: {
+    specialisation: {
       type: String,
     },
   },

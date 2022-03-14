@@ -4,10 +4,10 @@ import { ServiceService } from './service.service';
 
 @Controller()
 export class ServiceController {
-  constructor(private readonly hospitalService: ServiceService) {}
+  constructor(private readonly ServiceService: ServiceService) {}
 
   @Get('/service')
-  getAllServices(): Promise<Service[]> {
-    return this.hospitalService.getAllService();
+  getAllService(): Promise<Service[]> {
+    return this.ServiceService.getAllService();
   }
 }

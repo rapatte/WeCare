@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import ormConfig from './config/ormConfig';
 import { HopitalModule } from './hospital/hospital.module';
+import { ServiceModule } from './service/service.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { HopitalModule } from './hospital/hospital.module';
       useFactory: ormConfig,
     }),
     HopitalModule,
+    ServiceModule,
   ],
   controllers: [AppController],
   providers: [AppService],
