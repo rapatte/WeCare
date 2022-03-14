@@ -13,4 +13,8 @@ export class ServiceService {
   async getAllService(): Promise<Service[]> {
     return this.serviceRepository.find();
   }
+
+  async addAService(service): Promise<Service> {
+    return this.serviceRepository.save(service);
+  }
 }

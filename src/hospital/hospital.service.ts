@@ -13,4 +13,8 @@ export class HospitalService {
   async getAllHospital(): Promise<Hospital[]> {
     return this.hopitalRepository.find();
   }
+
+  async addAHospital(hospital): Promise<Hospital> {
+    return this.hopitalRepository.save(hospital);
+  }
 }

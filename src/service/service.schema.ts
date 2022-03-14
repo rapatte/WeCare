@@ -16,5 +16,8 @@ export const ServiceSchema = new EntitySchema<Service>({
     specialisation: {
       type: String,
     },
+    hospitals: {
+      type: Number,
+    },
   },
 });
