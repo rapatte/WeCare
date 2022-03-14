@@ -1,14 +1,13 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import ormConfig from './config/ormConfig';
 import { HopitalModule } from './hospital/hospital.module';
 import { PatientModule } from './patient/patient.module';
 import { ServiceModule } from './service/service.module';
 import { PractitionerModule } from './practitioner/practitioner.module';
 import { DesponibliteModule } from './disponibilite/disponibilite.module';
+import { AllergieModule } from './allergie/allergie.module';
 
 @Module({
   imports: [
@@ -26,8 +25,9 @@ import { DesponibliteModule } from './disponibilite/disponibilite.module';
     ServiceModule,
     PractitionerModule,
     DesponibliteModule,
+    AllergieModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

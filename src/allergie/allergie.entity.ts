@@ -1,13 +1,13 @@
 import { Entity, Column, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
 
 @Entity()
-export class Service extends BaseEntity {
+export class Allergie extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  name: string;
+  code: string;
 
   @Column()
-  specialisation: string;
+  name: string;
 }
