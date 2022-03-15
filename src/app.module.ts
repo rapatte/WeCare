@@ -8,6 +8,7 @@ import { ServiceModule } from './service/service.module';
 import { PractitionerModule } from './practitioner/practitioner.module';
 import { DesponibliteModule } from './disponibilite/disponibilite.module';
 import { AllergieModule } from './allergie/allergie.module';
+import { MedicineModule } from './medicine/medicine.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { AllergieModule } from './allergie/allergie.module';
     PractitionerModule,
     DesponibliteModule,
     AllergieModule,
+    MedicineModule,
   ],
   controllers: [],
   providers: [],
