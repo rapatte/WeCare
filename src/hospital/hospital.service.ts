@@ -1,20 +1,24 @@
-import { Injectable } from '@nestjs/common';
-import { Repository } from 'typeorm';
+import { Inject, Injectable } from '@nestjs/common';
 import { Hospital } from './hospital.entity';
 import { InjectRepository } from '@nestjs/typeorm';
+import HospitalRepository from './hospital.repository';
 
+export interface IHospitalRepository {
+  getAllHospital(): Promise<Hospital[]>;
+  addAHospital(hospital: Hospital): Promise<Hospital>;
+}
 @Injectable()
 export class HospitalService {
   constructor(
-    @InjectRepository(Hospital)
-    private hopitalRepository: Repository<Hospital>,
+    @Inject(HospitalRepository)
+    private hospitalRepository: IHospitalRepository,
   ) {}
 
   async getAllHospital(): Promise<Hospital[]> {
-    return this.hopitalRepository.find();
+    return this.hospitalRepository.getAllHospital();
   }
 
   async addAHospital(hospital): Promise<Hospital> {
-    return this.hopitalRepository.save(hospital);
+    return this.hospitalRepository.addAHospital(hospital);
   }
 }
