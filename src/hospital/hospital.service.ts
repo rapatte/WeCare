@@ -18,7 +18,7 @@ export class HospitalService {
     return this.hospitalRepository.getAllHospital();
   }
 
-  async addAHospital(hospital): Promise<Hospital> {
+  async addAHospital(hospital: Hospital): Promise<Hospital> {
     return this.hospitalRepository.addAHospital(hospital);
   }
 }

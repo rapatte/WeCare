@@ -10,7 +10,7 @@ class HospitalRepository {
   }
 
   async addAHospital(hospital: Hospital) {
-    return await this.manager.save(hospital);
+    return await this.manager.save(Hospital, hospital);
   }
 }
 
