@@ -1,6 +1,7 @@
 import { Hospital } from '../hospital.entity';
-import { hospital } from '../../helpers/types/hospital.types';
-import { IHospitalRepository } from '../hospital.service';
+import { hospital } from '../../../helpers/types/hospital.types';
+import { ApiError } from 'src/helpers/error';
+import { IHospitalRepository } from 'src/helpers/interfaces/hospital.interface';
 
 export default class HospitalRepositoryMock implements IHospitalRepository {
   hospitals: Hospital[] = [];
@@ -13,6 +14,8 @@ export default class HospitalRepositoryMock implements IHospitalRepository {
     result.name = hospital.name;
     result.address = hospital.address;
     result.telephone = hospital.telephone;
+    if (!result.name || !result.address || !result.telephone)
+      throw new ApiError(400, 'Cannot add empty hospital');
     this.hospitals.push(result);
     return result;
   }

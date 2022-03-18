@@ -2,14 +2,15 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import ormConfig from './config/ormConfig';
-import { HopitalModule } from './hospital/hospital.module';
-import { PatientModule } from './patient/patient.module';
-import { ServiceModule } from './service/service.module';
-import { PractitionerModule } from './practitioner/practitioner.module';
-import { DesponibliteModule } from './disponibilite/disponibilite.module';
-import { AllergieModule } from './allergie/allergie.module';
-import { MedicineModule } from './medicine/medicine.module';
-
+import {
+  HopitalModule,
+  PatientModule,
+  ServiceModule,
+  PractitionerModule,
+  DisponibliteModule,
+  AllergieModule,
+  MedicineModule,
+} from './modules';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -25,7 +26,7 @@ import { MedicineModule } from './medicine/medicine.module';
     PatientModule,
     ServiceModule,
     PractitionerModule,
-    DesponibliteModule,
+    DisponibliteModule,
     AllergieModule,
     MedicineModule,
   ],

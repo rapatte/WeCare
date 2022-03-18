@@ -1,10 +1,10 @@
 import { Controller, Get } from '@nestjs/common';
 import { Disponibilite } from './disponibilite.entity';
-import { DesponibliteService } from './disponibilite.service';
+import { DisponibliteService } from './disponibilite.service';
 
 @Controller()
 export class DisponibiliteController {
-  constructor(private readonly disponibiliteService: DesponibliteService) {}
+  constructor(private readonly disponibiliteService: DisponibliteService) {}
 
   @Get('/disponibilite')
   getAllDisponibilite(): Promise<Disponibilite[]> {

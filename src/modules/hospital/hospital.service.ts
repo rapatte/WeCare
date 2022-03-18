@@ -1,14 +1,13 @@
 import { Inject, Injectable } from '@nestjs/common';
+import { ApiError } from 'src/helpers/error';
+import {
+  IHospitalRepository,
+  IHospitalService,
+} from 'src/helpers/interfaces/hospital.interface';
 import { Hospital } from './hospital.entity';
-import { InjectRepository } from '@nestjs/typeorm';
 import HospitalRepository from './hospital.repository';
-
-export interface IHospitalRepository {
-  getAllHospital(): Promise<Hospital[]>;
-  addAHospital(hospital: Hospital): Promise<Hospital>;
-}
 @Injectable()
-export class HospitalService {
+export class HospitalService implements IHospitalService {
   constructor(
     @Inject(HospitalRepository)
     private hospitalRepository: IHospitalRepository,
@@ -19,6 +18,10 @@ export class HospitalService {
   }
 
   async addAHospital(hospital): Promise<Hospital> {
-    return this.hospitalRepository.addAHospital(hospital);
+    if (!hospital.name || !hospital.address || !hospital.telephone) {
+      throw new ApiError(400, 'Hospital property cannot be empty');
+    } else {
+      return this.hospitalRepository.addAHospital(hospital);
+    }
   }
 }

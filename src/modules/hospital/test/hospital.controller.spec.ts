@@ -4,6 +4,19 @@ import HospitalRepositoryMock from './hospital.repository.mock';
 const hospitalService = new HospitalService(new HospitalRepositoryMock());
 describe('Hospital Service :', () => {
   describe('addAHospital', () => {
+    it('should return an error message if input are empties', async () => {
+      try {
+        await hospitalService.addAHospital({
+          name: 'sdfsd',
+          address: 'sdfsdf',
+          telephone: '',
+        });
+      } catch (error) {
+        console.log(error);
+
+        throw new Error(error);
+      }
+    });
     it('should add a hospital in the array of hospitals', async () => {
       const newHospital = await hospitalService.addAHospital({
         name: 'testname',

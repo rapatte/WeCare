@@ -4,7 +4,7 @@ import { Disponibilite } from './disponibilite.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
-export class DesponibliteService {
+export class DisponibliteService {
   constructor(
     @InjectRepository(Disponibilite)
     private desponibiliteRepository: Repository<Disponibilite>,

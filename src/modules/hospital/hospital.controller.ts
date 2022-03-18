@@ -16,9 +16,8 @@ export class HospitalController {
   async create(
     @Body() hospital: Hospital,
     @Res() response: Response,
-  ): Promise<Hospital> {
+  ): Promise<void> {
     const newhospital = await this.hospitalService.addAHospital(hospital);
-    response.status(HttpStatus.CREATED).send(newhospital);
-    return newhospital;
+    response.status(HttpStatus.CREATED).json(newhospital);
   }
 }

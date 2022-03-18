@@ -1,4 +1,4 @@
-import { Hospital } from 'src/hospital/hospital.entity';
+import { Hospital } from 'src/modules/hospital/hospital.entity';
 import {
   Entity,
   Column,
