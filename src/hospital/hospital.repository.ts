@@ -11,9 +11,6 @@ class HospitalRepository {
   async getOneHospitalById(id: number) {
     return await this.manager.findOne(Hospital, id);
   }
-  async DeliteOne(id: number) {
-    return await this.manager.delete(Hospital, id);
-  }
   async addAHospital(hospital: Hospital) {
     console.log(hospital);
     return await this.manager.save(Hospital, hospital);

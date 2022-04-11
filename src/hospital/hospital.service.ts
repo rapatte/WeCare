@@ -34,14 +34,6 @@ export class HospitalService {
     // console.log(hospital, 'bbbbb');
     return hospital;
   }
-  async getOneHospitalById(id: number): Promise<Hospital> {
-    const hospital = await this.hospitalRepository.getOneHospitalById(id);
-    if (!hospital) {
-      throw new Error('hospital not found.');
-    }
-    // console.log(hospital, 'bbbbb');
-    return hospital;
-  }
 
   async addAHospital(hospital): Promise<Hospital> {
     return this.hospitalRepository.addAHospital(hospital);

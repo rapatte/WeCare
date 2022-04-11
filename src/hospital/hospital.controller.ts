@@ -35,18 +35,6 @@ export class HospitalController {
       throw new HttpException(error.message, HttpStatus.NOT_FOUND);
     }
   }
-  @Delete(':id')
-  async delete(
-    @Res() response: Response,
-    @Param('id') id: number,
-  ): Promise<void> {
-    try {
-      const hopital = await this.hospitalService.delete(id);
-      response.status(HttpStatus.FOUND).send(hopital);
-    } catch (error) {
-      throw new HttpException(error.message, HttpStatus.NOT_FOUND);
-    }
-  }
 
   @Post()
   async create(
