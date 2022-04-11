@@ -19,6 +19,7 @@ describe('AppController', () => {
 
     it('should return an array of hospitals', () => {
       expect(hospitalService.getAllHospital()).toEqual([]);
+      console.log([])
     });
   });
 });

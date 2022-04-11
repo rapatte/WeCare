@@ -1,4 +1,6 @@
 class HospitalRepositoryMock {
+  hospitals: { id: number; name: string; address: string; telephone: string }[];
+
   constructor() {
     this.hospitals = [
       { id: 1, name: 'peter pan', address: 'paris', telephone: '1234567890' },

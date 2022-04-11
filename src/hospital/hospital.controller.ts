@@ -1,4 +1,15 @@
-import { Body, Controller, Get, HttpStatus, Post, Res } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpException,
+  HttpStatus,
+  Param,
+  Post,
+  Res,
+} from '@nestjs/common';
+
 import { Response } from 'express';
 import { Hospital } from './hospital.entity';
 import { HospitalService } from './hospital.service';
@@ -10,6 +21,31 @@ export class HospitalController {
   @Get()
   getAllHospital(): Promise<Hospital[]> {
     return this.hospitalService.getAllHospital();
+  }
+
+  @Get(':id')
+  async getOneHospitalById(
+    @Res() response: Response,
+    @Param('id') id: number,
+  ): Promise<void> {
+    try {
+      const hospital = await this.hospitalService.getOneHospitalById(id);
+      response.status(HttpStatus.FOUND).send(hospital);
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.NOT_FOUND);
+    }
+  }
+  @Delete(':id')
+  async delete(
+    @Res() response: Response,
+    @Param('id') id: number,
+  ): Promise<void> {
+    try {
+      const hopital = await this.hospitalService.delete(id);
+      response.status(HttpStatus.FOUND).send(hopital);
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.NOT_FOUND);
+    }
   }
 
   @Post()
