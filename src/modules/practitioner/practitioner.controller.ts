@@ -27,7 +27,7 @@ export class PractitionerController {
   ): Promise<void> {
     const seacrchedPractioners =
       await this.practitionerService.searchPractitioners(query);
-    response.status(HttpStatus.FOUND).send(seacrchedPractioners);
+    response.status(HttpStatus.OK).send(seacrchedPractioners);
   }
 
   @Post()
