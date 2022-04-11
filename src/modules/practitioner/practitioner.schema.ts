@@ -2,7 +2,7 @@ import { EntitySchema } from 'typeorm';
 import { Practitioner } from './practitioner.entity';
 
 export const PractitionerSchema = new EntitySchema<Practitioner>({
-  name: 'Hospital',
+  name: 'Practitioner',
   target: Practitioner,
   columns: {
     id: {
@@ -18,6 +18,15 @@ export const PractitionerSchema = new EntitySchema<Practitioner>({
     },
     mail: {
       type: String,
+    },
+    city: {
+      type: String,
+    },
+    specialization: {
+      type: String,
+    },
+    hospital: {
+      type: Number,
     },
   },
 });
