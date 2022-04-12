@@ -1,11 +1,9 @@
-<<<<<<< HEAD:src/modules/hospital/hospital.service.ts
-import { Inject, Injectable } from '@nestjs/common';
 import { ApiError } from 'src/helpers/error';
 import {
   IHospitalRepository,
   IHospitalService,
 } from 'src/helpers/interfaces/hospital.interface';
-=======
+
 import {
   HttpException,
   HttpStatus,
@@ -13,19 +11,10 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
->>>>>>> 3e276da ( get hopital by id):src/hospital/hospital.service.ts
 import { Hospital } from './hospital.entity';
 import HospitalRepository from './hospital.repository';
-<<<<<<< HEAD:src/modules/hospital/hospital.service.ts
-=======
 import { identity } from 'rxjs';
 
-export interface IHospitalRepository {
-  getAllHospital(): Promise<Hospital[]>;
-  getOneHospitalById(id: number): Promise<Hospital>;
-  addAHospital(hospital: Hospital): Promise<Hospital>;
-}
->>>>>>> 3e276da ( get hopital by id):src/hospital/hospital.service.ts
 @Injectable()
 export class HospitalService implements IHospitalService {
   constructor(
@@ -42,7 +31,6 @@ export class HospitalService implements IHospitalService {
     if (!hospital) {
       throw new Error('hospital not found.');
     }
-    // console.log(hospital, 'bbbbb');
     return hospital;
   }
 
