@@ -8,6 +8,9 @@ export default class HospitalRepositoryMock implements IHospitalRepository {
   async getAllHospital(): Promise<Hospital[]> {
     return this.hospitals;
   }
+  async getOneHospitalById(id): Promise<Hospital> {
+    return this.hospitals.find(id);
+  }
 
   async addAHospital(hospital: hospital) {
     const result = new Hospital();
