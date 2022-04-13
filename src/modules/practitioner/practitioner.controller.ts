@@ -25,9 +25,13 @@ export class PractitionerController {
     @Res() response: Response,
     @Query() query: string,
   ): Promise<void> {
-    const seacrchedPractioners =
-      await this.practitionerService.searchPractitioners(query);
-    response.status(HttpStatus.OK).send(seacrchedPractioners);
+    try {
+      const seacrchedPractioners =
+        await this.practitionerService.searchPractitioners(query);
+      response.status(HttpStatus.OK).send(seacrchedPractioners);
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.NOT_FOUND);
+    }
   }
 
   @Post()
@@ -35,18 +39,13 @@ export class PractitionerController {
     @Body() practitioner: Practitioner,
     @Res() response: Response,
   ): Promise<Practitioner | void> {
-    const ractitionerProperties = Object.values(practitioner);
-    ractitionerProperties.map((propertie) => {
-      if (propertie === '') {
-        throw new HttpException(
-          'Tous les champs doivent être renseignés',
-          HttpStatus.BAD_REQUEST,
-        );
-      }
-    });
-    const newMission = await this.practitionerService.createPractitioner(
-      practitioner,
-    );
-    response.status(HttpStatus.CREATED).send(newMission);
+    try {
+      const newPractitioner = await this.practitionerService.createPractitioner(
+        practitioner,
+      );
+      response.status(HttpStatus.CREATED).send(newPractitioner);
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.NOT_FOUND);
+    }
   }
 }
